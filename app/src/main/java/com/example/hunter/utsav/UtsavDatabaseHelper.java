@@ -17,8 +17,11 @@ public class UtsavDatabaseHelper extends SQLiteOpenHelper{
 
     public UtsavDatabaseHelper(Context context) {
         super(context, DBName, null, version);
+
         currentContext = context;
+
         DBPath = "/data/data/" + context.getPackageName() + "/databases";
+
         createDatabase();
 
     }
@@ -40,6 +43,7 @@ public class UtsavDatabaseHelper extends SQLiteOpenHelper{
 
         if (dbExists) {
 // do nothing
+
         } else {
             DB = currentContext.openOrCreateDatabase(DBName, 0, null);
             DB.execSQL("CREATE TABLE IF NOT EXISTS " +
@@ -47,6 +51,7 @@ public class UtsavDatabaseHelper extends SQLiteOpenHelper{
                     " ( FirstName VARCHAR," +
                     " Class VARCHAR, Phone VARCHAR);");
 
+            /*
             DB.execSQL("INSERT INTO " +
                     tableName +
                     " Values ('Rahul','D7C','9321187149');");
@@ -65,6 +70,8 @@ public class UtsavDatabaseHelper extends SQLiteOpenHelper{
             DB.execSQL("INSERT INTO " +
                     tableName +
                     " Values ('qwerty','d12','91212');");
+  */
+
         }
 
     }
@@ -88,6 +95,7 @@ public class UtsavDatabaseHelper extends SQLiteOpenHelper{
             checkDB.close();
 
         }
+
 
         return checkDB != null ? true : false;
     }
