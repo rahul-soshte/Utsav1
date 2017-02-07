@@ -42,10 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextPhoneNo" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="fill_parent"
@@ -56,14 +53,20 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Delete"
+        android:text="Delete(IF AUDITIONS DONE)"
         android:id="@+id/btnDelete" />
+
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Update"
-        android:id="@+id/btnUpdate" />
-</LinearLayout>
+        android:id="@+id/btnUpdate"/>
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Missed Call"
+        android:id="@+id/btnMissed" />
 
 </LinearLayout>
