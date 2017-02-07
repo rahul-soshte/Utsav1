@@ -9,13 +9,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends ListActivity {
 
-    private ArrayList<String> results = new ArrayList<String>();
+    public ArrayList<String> results = new ArrayList<String>();
     private String tableName = UtsavDatabaseHelper.tableName;
     private SQLiteDatabase newDB;
 
@@ -100,6 +102,13 @@ public class MainActivity extends ListActivity {
         }*/
 
 
+    }
+    @Override
+    public void onListItemClick (ListView listView, View itemView, int position, long id)
+    {
+        Intent intent = new Intent(MainActivity.this, PersonActivity.class);
+        intent.putExtra(PersonActivity.EXTRA_PERSON,(int)id);
+        startActivity(intent);
     }
 
 }
