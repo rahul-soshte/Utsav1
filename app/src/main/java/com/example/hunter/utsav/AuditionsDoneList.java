@@ -7,28 +7,26 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends ListActivity {
+public class AuditionsDoneList extends ListActivity {
 
     public ArrayList<String> results = new ArrayList<String>();
-    private String tableName = UtsavDatabaseHelper.tableName;
+    private String tableName = UtsavDatabaseHelper.AuditionTableName;
     private SQLiteDatabase newDB;
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-           openAndQueryDatabase();
+        openAndQueryDatabase();
         displayResultList();
-
     }
+
     private void displayResultList() {
       /*  TextView tView = new TextView(this);
         tView.setText("This is a precreated database not a dynamically added one");
@@ -40,7 +38,7 @@ public class MainActivity extends ListActivity {
         getListView().setTextFilterEnabled(true);
 
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -58,7 +56,7 @@ public class MainActivity extends ListActivity {
                 //Code to run when the New Person item is clicked
                 Intent intent=new Intent(this,queue.class);
                 startActivity(intent);
-    //          c.moveToFirst();
+                //          c.moveToFirst();
 
                 return true;
             case R.id.audition_done:
@@ -70,15 +68,15 @@ public class MainActivity extends ListActivity {
         }
     }
 
+*/
 
     private void openAndQueryDatabase() {
         try {
             UtsavDatabaseHelper dbHelper = new UtsavDatabaseHelper(this.getApplicationContext());
             newDB = dbHelper.getWritableDatabase();
 
-             Cursor c = newDB.rawQuery("SELECT FirstName, Class FROM " +
+            Cursor c = newDB.rawQuery("SELECT FirstName, Class FROM " +
                     tableName , null);
-
 
 
             if (c != null ) {
@@ -104,8 +102,8 @@ public class MainActivity extends ListActivity {
     @Override
     public void onListItemClick (ListView listView, View itemView, int position, long id)
     {
-        Intent intent = new Intent(MainActivity.this, PersonActivity.class);
-        intent.putExtra(PersonActivity.EXTRA_PERSON,(int)id);
+        Intent intent = new Intent(AuditionsDoneList.this, AuditionDoneDetail.class);
+       intent.putExtra(PersonActivity.EXTRA_PERSON,(int)id);
         startActivity(intent);
     }
 

@@ -5,8 +5,15 @@
 
     <item android:id="@+id/action_new_person"
         android:title="@string/action_new_person"
-        android:icon="@drawable/ic_action_new_event"
+        android:icon="@drawable/add_user"
         android:orderInCategory="1"
         android:showAsAction="ifRoom" />
+
+
+    <item android:id="@+id/audition_done"
+    android:title="Auditions Done List"
+    android:icon="@drawable/database_check_icon"
+    android:orderInCategory="2"
+    android:showAsAction="ifRoom" />
 
 </menu>

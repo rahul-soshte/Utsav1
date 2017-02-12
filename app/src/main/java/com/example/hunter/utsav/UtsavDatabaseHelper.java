@@ -14,6 +14,8 @@ public class UtsavDatabaseHelper extends SQLiteOpenHelper{
     public static final int version = '1';
     public static Context currentContext;
     public static String tableName = "Resource";
+public static String AuditionTableName="Lovely";
+
 
     public UtsavDatabaseHelper(Context context) {
         super(context, DBName, null, version);
@@ -48,6 +50,11 @@ public class UtsavDatabaseHelper extends SQLiteOpenHelper{
             DB = currentContext.openOrCreateDatabase(DBName, 0, null);
             DB.execSQL("CREATE TABLE IF NOT EXISTS " +
                     tableName +
+                    " ( FirstName VARCHAR," +
+                    " Class VARCHAR, Phone VARCHAR);");
+
+            DB.execSQL("CREATE TABLE IF NOT EXISTS " +
+                    AuditionTableName +
                     " ( FirstName VARCHAR," +
                     " Class VARCHAR, Phone VARCHAR);");
 

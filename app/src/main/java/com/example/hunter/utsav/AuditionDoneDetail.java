@@ -1,8 +1,6 @@
 package com.example.hunter.utsav;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,12 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import static com.example.hunter.utsav.UtsavDatabaseHelper.AuditionTableName;
-import static com.example.hunter.utsav.UtsavDatabaseHelper.tableName;
 
-public class PersonActivity extends Activity implements View.OnClickListener {
+public class AuditionDoneDetail extends Activity implements View.OnClickListener {
     private String name;
     private String age;
     private String Phone;
@@ -25,38 +20,39 @@ public class PersonActivity extends Activity implements View.OnClickListener {
     private EditText editTextClass;
     private EditText editTextPhoneNo;
     private Button btnMessage;
-    private Button btnDelete;
+//    private Button btnDelete;
     //private Button btnUpdate;
     private Button btnMissed;
 
     SQLiteDatabase newDB;
-public int Person_No;
+
+    public int Person_No;
 
     //Intent intent=new Intent(this,MainActivity.class);
     //startActivity(intent);
     public static final String EXTRA_PERSON = "Person_No";
-private Cursor c;
-
+    private Cursor c;
+    private String tableName = UtsavDatabaseHelper.AuditionTableName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_person);
+        setContentView(R.layout.activity_audition_done_detail);
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextClass = (EditText) findViewById(R.id.editTextClass);
         editTextPhoneNo = (EditText) findViewById(R.id.editTextPhoneNo);
         btnMessage = (Button) findViewById(R.id.btnMessage);
         //btnUpdate = (Button) findViewById(R.id.btnUpdate);
-        btnDelete = (Button) findViewById(R.id.btnDelete);
+        //btnDelete = (Button) findViewById(R.id.btnDelete);
         btnMissed=(Button)findViewById(R.id.btnMissed);
         //btnUpdate.setOnClickListener(this);
         btnMessage.setOnClickListener(this);
-        btnDelete.setOnClickListener(this) ;
-      btnMissed.setOnClickListener(this);
-         Person_No = (Integer) getIntent().getExtras().get(EXTRA_PERSON);
+       // btnDelete.setOnClickListener(this) ;
+        btnMissed.setOnClickListener(this);
+        Person_No = (Integer) getIntent().getExtras().get(EXTRA_PERSON);
         UtsavDatabaseHelper dbHelper = new UtsavDatabaseHelper(this.getApplicationContext());
         newDB = dbHelper.getWritableDatabase();
-         c = newDB.rawQuery("SELECT FirstName, Class, Phone FROM " +
+        c = newDB.rawQuery("SELECT FirstName, Class, Phone FROM " +
                 tableName , null);
 
         showRecord(Person_No);
@@ -68,25 +64,25 @@ private Cursor c;
     {
         int i=0;
 
-if(c!=null) {
-    c.moveToFirst();
-    while(i!=rec)
-    {
-        c.moveToNext();
-        i++;
+        if(c!=null) {
+            c.moveToFirst();
+            while(i!=rec)
+            {
+                c.moveToNext();
+                i++;
 
-    }
-}
+            }
+        }
 
-         name=c.getString(c.getColumnIndex("FirstName"));
-         age=c.getString(c.getColumnIndex("Class"));
-         Phone=c.getString(c.getColumnIndex("Phone"));
+        name=c.getString(c.getColumnIndex("FirstName"));
+        age=c.getString(c.getColumnIndex("Class"));
+        Phone=c.getString(c.getColumnIndex("Phone"));
 
         editTextName.setText(name);
         editTextClass.setText(age);
         editTextPhoneNo.setText(Phone);
     }
-
+/*
     private void moveRecord() {
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -114,15 +110,14 @@ if(c!=null) {
                         newDB.execSQL("INSERT INTO " +
                                 AuditionTableName +
                                 " Values ('"+name+"','"+age+"','"+Phone+"');");
-*/
 
-                         //= "DELETE FROM persons WHERE FirstName=" + id + ";";
+                        //= "DELETE FROM persons WHERE FirstName=" + id + ";";
                         newDB.delete(tableName," FirstName = ? AND Class = ? AND Phone = ? ",new String[] {name,age,Phone});
 
                         //c=newDB.rawQuery()
                         Toast.makeText(getApplicationContext(), "Record Deleted", Toast.LENGTH_LONG).show();
                         //c = newDB.rawQuery(SELECT_SQL,null);
-      //startActivity(intent);
+                        //startActivity(intent);
                     }
                 });
 
@@ -139,7 +134,8 @@ if(c!=null) {
         alertDialog.show();
 
     }
-
+    */
+/*
     private void moveRecord1()
     {
         newDB.execSQL("INSERT INTO " +
@@ -153,13 +149,10 @@ if(c!=null) {
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
     }
+    */
+
     public void onClick(View v) {
 
-        if (v == btnDelete) {
-moveRecord1();
-
-
-        }
         if (v == btnMessage) {
 
             Intent sendIntent = new Intent(Intent.ACTION_VIEW);
@@ -169,11 +162,12 @@ moveRecord1();
         }
         if(v==btnMissed)
         {
-            Intent callIntent = new Intent(Intent.ACTION_DIAL);
-            callIntent.setData(Uri.parse("tel:"+Phone));//change the number.
-            startActivity(callIntent);
+            Intent sendIntent1=new Intent(Intent.ACTION_DIAL);
+            startActivity(sendIntent1);
+
 
         }
+
     }
 
 }
