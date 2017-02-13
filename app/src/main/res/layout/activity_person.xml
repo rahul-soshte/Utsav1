@@ -62,5 +62,12 @@
         android:layout_height="wrap_content"
         android:text="Phone/Missed Call"
         android:id="@+id/btnMissed" />
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Details"
+        android:id="@+id/btnUpdate" />
+
 
 </LinearLayout>

@@ -2,6 +2,7 @@ package com.example.hunter.utsav;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -26,7 +27,7 @@ public class PersonActivity extends Activity implements View.OnClickListener {
     private EditText editTextPhoneNo;
     private Button btnMessage;
     private Button btnDelete;
-    //private Button btnUpdate;
+    private Button btnUpdate;
     private Button btnMissed;
 
     SQLiteDatabase newDB;
@@ -46,10 +47,10 @@ private Cursor c;
         editTextClass = (EditText) findViewById(R.id.editTextClass);
         editTextPhoneNo = (EditText) findViewById(R.id.editTextPhoneNo);
         btnMessage = (Button) findViewById(R.id.btnMessage);
-        //btnUpdate = (Button) findViewById(R.id.btnUpdate);
+        btnUpdate = (Button) findViewById(R.id.btnUpdate);
         btnDelete = (Button) findViewById(R.id.btnDelete);
         btnMissed=(Button)findViewById(R.id.btnMissed);
-        //btnUpdate.setOnClickListener(this);
+        btnUpdate.setOnClickListener(this);
         btnMessage.setOnClickListener(this);
         btnDelete.setOnClickListener(this) ;
       btnMissed.setOnClickListener(this);
@@ -153,6 +154,36 @@ if(c!=null) {
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
     }
+
+    protected void saveRecord() {
+        String name = editTextName.getText().toString().trim();
+        String add = editTextClass.getText().toString().trim();
+        String id = editTextPhoneNo.getText().toString().trim();
+        //String sql =
+
+        if (name.equals("") || add.equals("") || id.equals("")) {
+            Toast.makeText(getApplicationContext(), "You cannot save blank values", Toast.LENGTH_LONG).show();
+            return;
+        }
+        //newDB.update(tableName,
+  //      newDB.update(tableName," FirstName = ? AND Class = ? AND Phone = ? ",new String[] {name,age,Phone});
+       // db.execSQL(sql);
+        //newDB.execSQL("UPDATE "+tableName+" SET FirstName='" + name + "', Class='" + add + "', Phone='" + id + ";");
+        ContentValues data=new ContentValues();
+        data.put("FirstName",name);
+        data.put("Class",add);
+        data.put("Phone",id);
+        newDB.update(tableName, data,null,null);
+
+
+        Toast.makeText(getApplicationContext(), "Records Saved Successfully", Toast.LENGTH_LONG).show();
+        //c = db.rawQuery(SELECT_SQL, null);
+        //c.moveToPosition(Integer.parseInt(id));
+
+        Intent intent=new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+
     public void onClick(View v) {
 
         if (v == btnDelete) {
@@ -172,6 +203,12 @@ moveRecord1();
             Intent callIntent = new Intent(Intent.ACTION_DIAL);
             callIntent.setData(Uri.parse("tel:"+Phone));//change the number.
             startActivity(callIntent);
+
+        }
+        if(v==btnUpdate)
+        {
+            saveRecord();
+
 
         }
     }
