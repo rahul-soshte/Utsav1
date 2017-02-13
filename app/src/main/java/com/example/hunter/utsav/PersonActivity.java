@@ -156,25 +156,30 @@ if(c!=null) {
     }
 
     protected void saveRecord() {
-        String name = editTextName.getText().toString().trim();
+        String name1 = editTextName.getText().toString().trim();
         String add = editTextClass.getText().toString().trim();
         String id = editTextPhoneNo.getText().toString().trim();
         //String sql =
 
-        if (name.equals("") || add.equals("") || id.equals("")) {
+        if (name1.equals("") || add.equals("") || id.equals("")) {
             Toast.makeText(getApplicationContext(), "You cannot save blank values", Toast.LENGTH_LONG).show();
             return;
         }
         //newDB.update(tableName,
   //      newDB.update(tableName," FirstName = ? AND Class = ? AND Phone = ? ",new String[] {name,age,Phone});
        // db.execSQL(sql);
-        //newDB.execSQL("UPDATE "+tableName+" SET FirstName='" + name + "', Class='" + add + "', Phone='" + id + ";");
+     //   newDB.execSQL("UPDATE "+tableName+" SET FirstName='" + name1 + "', Class='" + add + "', Phone='" + id + ";");
+   //  newDB.update(tableName,data,)
+
         ContentValues data=new ContentValues();
-        data.put("FirstName",name);
+        data.put("FirstName",name1);
         data.put("Class",add);
         data.put("Phone",id);
-        newDB.update(tableName, data,null,null);
+newDB.update(tableName,data,"FirstName = ? AND Class = ? AND Phone = ?",new String[]{name,age,Phone});
 
+
+       // newDB.update(tableName," FirstName = ? AND Class = ? AND Phone = ? ",new String[] {name,age,Phone},);
+//newDB.execSQL("UPDATE "+tableName+"SET ");
 
         Toast.makeText(getApplicationContext(), "Records Saved Successfully", Toast.LENGTH_LONG).show();
         //c = db.rawQuery(SELECT_SQL, null);
@@ -183,6 +188,7 @@ if(c!=null) {
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
     }
+
 
     public void onClick(View v) {
 
@@ -207,7 +213,7 @@ moveRecord1();
         }
         if(v==btnUpdate)
         {
-            saveRecord();
+             saveRecord();
 
 
         }
