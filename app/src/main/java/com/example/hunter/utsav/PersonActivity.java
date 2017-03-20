@@ -21,7 +21,7 @@ public class PersonActivity extends Activity implements View.OnClickListener {
     private String name;
     private String age;
     private String Phone;
-    private String x="You are up next in the Antakshari auditions,Report at the Alloted Room for the same ASAP.If you are not free right now,Call back ASAP to tell your preferred time.Ignore this message if you have already given the auditions";
+    private String x="You are up next in the RJ HUNT/15 mins of fame/Debate/Sitcom Quiz auditions,Report at the Alloted Room for the same ASAP.If you are not free right now,Call back ASAP to tell your preferred time.Ignore this message if you have already given the auditions";
     private EditText editTextName;
     private EditText editTextClass;
     private EditText editTextPhoneNo;
@@ -78,7 +78,6 @@ if(c!=null) {
 
     }
 }
-
          name=c.getString(c.getColumnIndex("FirstName"));
          age=c.getString(c.getColumnIndex("Class"));
          Phone=c.getString(c.getColumnIndex("Phone"));
@@ -165,6 +164,7 @@ if(c!=null) {
             Toast.makeText(getApplicationContext(), "You cannot save blank values", Toast.LENGTH_LONG).show();
             return;
         }
+
         //newDB.update(tableName,
   //      newDB.update(tableName," FirstName = ? AND Class = ? AND Phone = ? ",new String[] {name,age,Phone});
        // db.execSQL(sql);

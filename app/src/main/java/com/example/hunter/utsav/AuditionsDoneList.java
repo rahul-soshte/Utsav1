@@ -28,8 +28,8 @@ public class AuditionsDoneList extends ListActivity {
     }
 
     private void displayResultList() {
-      /*  TextView tView = new TextView(this);
-        tView.setText("This is a precreated database not a dynamically added one");
+       /* TextView tView = new TextView(this);
+        tView.setText("This is Auditions Done List!Participants who have finished their auditions are added here");
         getListView().addHeaderView(tView);
 */
 

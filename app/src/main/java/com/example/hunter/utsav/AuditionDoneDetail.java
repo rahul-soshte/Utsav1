@@ -15,7 +15,7 @@ public class AuditionDoneDetail extends Activity implements View.OnClickListener
     private String name;
     private String age;
     private String Phone;
-    private String x="You are up next in the Antakshari auditions,Report at the Alloted Room for the same ASAP.If you are not free right now,Call back ASAP to tell your preferred time.Ignore this message if you have already given the auditions";
+private String x="You are up next in the RJ HUNT/15 mins of fame/Debate/Sitcom Quiz auditions,Report at the Alloted Room for the same ASAP.If you are not free right now,Call back ASAP to tell your preferred time.Ignore this message if you have already given the auditions";
     private EditText editTextName;
     private EditText editTextClass;
     private EditText editTextPhoneNo;
@@ -38,6 +38,7 @@ public class AuditionDoneDetail extends Activity implements View.OnClickListener
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audition_done_detail);
+
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextClass = (EditText) findViewById(R.id.editTextClass);
         editTextPhoneNo = (EditText) findViewById(R.id.editTextPhoneNo);

@@ -31,10 +31,9 @@ public class MainActivity extends ListActivity {
     }
     private void displayResultList() {
       /*  TextView tView = new TextView(this);
-        tView.setText("This is a precreated database not a dynamically added one");
+        tView.setText("This is a Audition Queue Scheduling App.This is where the particpants are added using the Add People Option above!Also besides it is the Auditions Done List Options");
         getListView().addHeaderView(tView);
-*/
-
+        */
         setListAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, results));
         getListView().setTextFilterEnabled(true);

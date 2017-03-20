@@ -10,10 +10,16 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".PersonActivity">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The particpant details are Shown here!You can update the details/Messag/Call/Move him to the Auditions Done List!"
+        android:id="@+id/textViewDetail" />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="Name(GroupNO)"
         android:id="@+id/textViewName" />
+
 
     <EditText
         android:layout_width="match_parent"
@@ -47,6 +53,13 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:text="Update Details"
+        android:id="@+id/btnUpdate" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:text="Message"
         android:id="@+id/btnMessage" />
     <Button
@@ -62,12 +75,6 @@
         android:layout_height="wrap_content"
         android:text="Phone/Missed Call"
         android:id="@+id/btnMissed" />
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Update Details"
-        android:id="@+id/btnUpdate" />
 
 
 </LinearLayout>

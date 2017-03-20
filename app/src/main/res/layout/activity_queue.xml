@@ -9,11 +9,16 @@
     android:orientation="vertical"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".queue">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The particpant details are added here!If its a team add only 1 name!Make sure the number of entries from a particular class are in accordance with the rules! Give groupNos with 1,2,3..No two group nos should be same"
 
+        android:id="@+id/textViewDetail" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="Name(GroupNo)"
         android:id="@+id/textViewName" />
 
     <EditText

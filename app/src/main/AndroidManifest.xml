@@ -10,8 +10,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="Antakshari"
-            android:noHistory="true">
+            android:label="Audition Queue"
+         android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,16 +22,18 @@
         <activity
             android:name=".queue"
             android:label="New Guy"
-             android:noHistory="true"/>
+
+           android:noHistory="true" />
         <activity
             android:name=".PersonActivity"
             android:label="Person Details"
-         android:noHistory="true"   />
+         android:noHistory="true"
+            />
 
         <activity
             android:name=".AuditionsDoneList"
             android:label="Auditions Done List"
-            />
+android:noHistory="true"            />
 
         <activity android:name=".AuditionDoneDetail"
             android:label="Person Details"
